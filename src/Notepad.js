@@ -37,17 +37,8 @@ export class Notepad extends React.Component {
         console.log(`Editted Note - ID: ${id}`);
     }
 
-    // DELETE functions
-    deleteNote = (id) => {
-        fetch(`https://docent.cmi.hro.nl/bootb/demo/notes/${id}`, { method: 'DELETE' })
-            .then(() => this.deletedNote(id))
-            .catch((error) => console.log(error));
-    }
-
-    deletedNote = (id) => {
-        console.log(`Deleted Note - ID: ${id}`);
+    resetActiveNote = () =>{
         this.setState({ activeNote : 0 })
-        this.props.reloadNotes()
     }
 
     render(){
@@ -60,7 +51,9 @@ export class Notepad extends React.Component {
                 <p>Number of notes: {this.props.notes.length}</p>
                 <div className="row-container">
                     <div className="notes">{notes}</div>
-                    <Notedetails note={this.state.activeNote} editNote={this.editNote} deleteNote={this.deleteNote} />
+                    
+                    <Notedetails note={this.state.activeNote} editNote={this.editNote} deleteNote={this.deleteNote} 
+                        resetActiveNote={this.resetActiveNote} reloadNotes={this.props.reloadNotes} reloadActiveNote={this.loadActiveNote} />
                 </div>
             </div>
         )
