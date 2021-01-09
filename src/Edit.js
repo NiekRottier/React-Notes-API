@@ -17,10 +17,20 @@ export class Edit extends React.Component {
         ReactModal.setAppElement('#root');
     }
 
+    refreshState = () => {
+        this.setState({
+            title : this.props.note.title,
+            body : this.props.note.body,
+            author : this.props.note.author
+        })
+    }
+
     // Open and Close Modal
     openModal = () => {
         this.setState({ modelOpen : true })
         console.log("Opened Modal");
+
+        this.refreshState()
     }
 
     closeModal = () => {
@@ -70,6 +80,7 @@ export class Edit extends React.Component {
     }
 
     render(){
+        console.log("RENDER EDIT");
         return(
             <div>
                 <input type="button" name="Edit" value="Edit" onClick={() => this.openModal()} />

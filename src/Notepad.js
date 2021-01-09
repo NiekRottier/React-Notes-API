@@ -48,8 +48,6 @@ export class Notepad extends React.Component {
             <div key={index} onClick={() => this.loadActiveNote(note.id)}>{note.title}</div>
         ));
 
-        console.log("RENDER");
-
         return (
             <div className="notepad">
                 <p>Number of notes: {this.props.notes.length}</p>
