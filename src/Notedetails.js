@@ -17,8 +17,7 @@ export class Notedetails extends React.Component {
                 <div className="note">
                     <h3>{this.props.note.title}</h3>
                     <p>{this.props.note.body}</p>
-                    <p>Author: {this.props.note.author}</p>
-                    <i>Posted at: {this.props.note.date}</i>
+                    <small><p>{this.props.note.author} ----- <i>{this.props.note.date}</i></p></small>
 
                     <Edit note={this.props.note} reloadNotes={this.props.reloadNotes} reloadActiveNote={this.props.reloadActiveNote}/>
                     <Delete note={this.props.note} resetActiveNote={this.props.resetActiveNote} reloadNotes={this.props.reloadNotes} />
