@@ -1,0 +1,230 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+body{
+    background-color: black;
+    padding: 20px;
+}
+
+.row-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.column-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#app > h1{
+    text-align: left;
+    padding-left: 20px;
+}
+
+.namechanger{
+    background-color: rgba(0, 0, 128, 0.2);
+    border: 1px solid navy;
+    border-radius: 5px;
+
+    width: 63%;
+    min-width: max-content;
+    padding: 10px;
+    margin: 10px;
+}
+
+.namechanger > input[type="text"]{
+    background-color: rgba(0, 0, 128, 0.2);
+    border: 1px solid navy;
+    border-radius: 5px;
+
+    width: 100%;
+    height: 30px;
+    padding: 0px 10px;
+    
+    /* display: table-cell; */
+}
+
+.createNote{
+    background-color: rgba(0, 0, 255, 0.2);
+    border: 1px solid blue;
+    border-radius: 5px;
+
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.createNote > input[type=button]{
+    background-color: rgba(0, 0, 205, 0.2);
+    border: 1px solid mediumblue;
+    border-radius: 5px;
+
+    width: 100%;
+    height: 30px;
+    padding: 0px 10px;
+}
+
+.modalContent{
+    position: absolute;
+    background-color: black;
+    border: 1px solid mediumblue;
+    border-radius: 5px;
+
+    height: 35%;
+    width: 50%;
+
+    top: 25%;
+    left: 25%;
+    margin: 0 auto;
+    padding: 20px;
+
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    outline: none;
+
+    z-index: 1;
+}
+
+.modalOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.createNoteForm > input[type="text"]{
+    background-color: rgba(0, 0, 205, 0.2);
+    border: 1px solid mediumblue;
+    border-radius: 5px;
+
+    width: 95%;
+    height: 30px;
+    padding: 0px 10px;
+    margin: 10px;
+}
+
+.createNoteForm > input[type="submit"]{
+    background-color: rgba(102, 205, 171, 0.2);
+    border: 1px solid mediumaquamarine;
+    border-radius: 5px;
+
+    width: 95%;
+    height: 30px;
+    padding: 0px 10px;
+    margin: 10px;
+}
+
+.notepad{
+    background-color: rgba(46, 139, 86, 0.2);
+    border: 1px solid seagreen;
+    border-radius: 5px;
+
+    padding: 10px;
+    margin: 10px;
+}
+
+.notepad>p{
+    text-align: left;
+    margin-left: 3%;
+}
+
+.notes{
+    background-color: rgba(135, 207, 235, 0.2);
+    border: 1px solid skyblue;
+    border-radius: 5px;
+
+    width: 36%;
+    height: min-content;
+    padding: 10px;
+    margin: 10px 2%;
+
+}
+
+.notes > div{
+    background-color: rgba(135, 207, 235, 0.2);
+    border: 1px solid skyblue;
+    border-radius: 5px;
+
+    padding: 10px;
+    margin: 10px 5%;
+
+    cursor: pointer;
+}
+
+.note{
+    background-color: rgba(0, 255, 128, 0.2);
+    border: 1px solid springgreen;
+    border-radius: 5px;
+    
+    width: 56%;
+    height: min-content;
+    padding: 10px;
+    margin: 10px 2%;
+
+}
+
+.note > input[name="Edit"]{
+    background-color: rgba(255, 255, 0, 0.2);
+    border: 1px solid yellow;
+    border-radius: 5px;
+
+    padding: 5px 10px;
+    margin: 5px 0;
+    display: block;
+    
+    cursor: pointer;
+}
+
+.note > input[name="Delete"]{
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid red;
+    border-radius: 5px;
+
+    padding: 5px 10px;
+    margin: 5px 0;
+    display: block;
+    
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px){
+    .row-container{
+        flex-direction: column;
+    }
+
+    .namechanger{
+        width: initial;
+    }
+
+    .createNote{
+        width: initial;
+    }
+
+    .modalContent{
+        width: 80%;
+        left: 10%;
+    }
+    
+    .notes > div{
+        width: 90%;
+    }
+
+    .notes, .note{
+        width: 95%;
+    }
+
+    .note > * {
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+    }
+}
