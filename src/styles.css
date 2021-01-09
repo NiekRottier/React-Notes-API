@@ -77,7 +77,7 @@ body{
     border: 1px solid mediumblue;
     border-radius: 5px;
 
-    height: 35%;
+    height: 40%;
     width: 50%;
 
     top: 25%;
@@ -101,6 +101,10 @@ body{
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.createNoteForm > label, .createNoteForm > p, .modalContent > small{
+    margin-left: 15px;
+}
+
 .createNoteForm > input[type="text"]{
     background-color: rgba(0, 0, 205, 0.2);
     border: 1px solid mediumblue;
@@ -112,7 +116,7 @@ body{
     margin: 10px;
 }
 
-.createNoteForm > input[type="submit"]{
+.createNoteForm > input[type="button"]{
     background-color: rgba(102, 205, 171, 0.2);
     border: 1px solid mediumaquamarine;
     border-radius: 5px;
