@@ -81,7 +81,7 @@ export class CreateNote extends React.Component {
                     isOpen={this.state.modelOpen}
                     onRequestClose={this.closeModal}>
                            
-                    <form className="createNoteForm column-container">
+                    <form className="noteForm column-container">
                         <label htmlFor="title">Title</label>
                         <input type="text" name="title" minLength="3" value={this.state.title} 
                             onChange={(event) => this.handleTitleChange(event)} />

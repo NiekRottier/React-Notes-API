@@ -88,8 +88,6 @@ body{
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     outline: none;
-
-    z-index: 1;
 }
 
 .modalOverlay{
@@ -101,11 +99,11 @@ body{
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.createNoteForm > label, .createNoteForm > p, .modalContent > small{
+.noteForm > label, .noteForm > p, .modalContent > small{
     margin-left: 15px;
 }
 
-.createNoteForm > input[type="text"]{
+.noteForm > input[type="text"]{
     background-color: rgba(0, 0, 205, 0.2);
     border: 1px solid mediumblue;
     border-radius: 5px;
@@ -116,7 +114,7 @@ body{
     margin: 10px;
 }
 
-.createNoteForm > input[type="button"]{
+.noteForm > input[type="button"]{
     background-color: rgba(102, 205, 171, 0.2);
     border: 1px solid mediumaquamarine;
     border-radius: 5px;
@@ -176,7 +174,7 @@ body{
 
 }
 
-.note > input[name="Edit"]{
+.note input[name="Edit"]{
     background-color: rgba(255, 255, 0, 0.2);
     border: 1px solid yellow;
     border-radius: 5px;
@@ -188,7 +186,7 @@ body{
     cursor: pointer;
 }
 
-.note > input[name="Delete"]{
+.note input[name="Delete"]{
     background-color: rgba(255, 0, 0, 0.2);
     border: 1px solid red;
     border-radius: 5px;
