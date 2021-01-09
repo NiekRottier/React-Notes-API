@@ -16,9 +16,9 @@ export class App extends React.Component {
 
         this.loadNotes()
     }
-
+    
     // Fetches data from API, gets the JSON and sends it to loadedNotes()
-    loadNotes(){
+    loadNotes = () => {
         let headers = { 'Accept': 'application/json' };
         fetch("http://docent.cmi.hro.nl/bootb/demo/notes/", { headers })
             .then((response) => response.json())
@@ -46,11 +46,11 @@ export class App extends React.Component {
                 <h1>{this.state.user}'s notes</h1>
                 <div className="row-container">
                     <Namechanger changeName = {this.changeName} />
-                    <CreateNote author={this.state.user} />
+                    <CreateNote author={this.state.user} reloadNotes={this.loadNotes} />
                 </div>
 
                 {/* <p>Wanna see your notes?</p> */}
-                <Notepad notes={this.state.notes} ref="notepad"/>
+                <Notepad notes={this.state.notes}/>
             </div>
         )
     }

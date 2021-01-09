@@ -65,7 +65,7 @@ export class CreateNote extends React.Component {
         // console.log(data);
         this.setState({ resData : data })
 
-        window.location.reload()
+        this.props.reloadNotes()
         this.closeModal()
     }
 
