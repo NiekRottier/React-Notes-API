@@ -16,7 +16,7 @@ export class App extends React.Component {
 
         this.loadNotes()
     }
-    
+
     // Fetches data from API, gets the JSON and sends it to loadedNotes()
     loadNotes = () => {
         let headers = { 'Accept': 'application/json' };
@@ -50,7 +50,7 @@ export class App extends React.Component {
                 </div>
 
                 {/* <p>Wanna see your notes?</p> */}
-                <Notepad notes={this.state.notes}/>
+                <Notepad notes={this.state.notes}  reloadNotes={this.loadNotes}/>
             </div>
         )
     }

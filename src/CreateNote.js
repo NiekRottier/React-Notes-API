@@ -39,7 +39,7 @@ export class CreateNote extends React.Component {
         this.setState({ body : formBody })
     }
 
-    // POST request to API
+    // POST functions
     handleSubmit = () => {
         let requestOptions = {
             method: 'POST',

@@ -27,18 +27,27 @@ export class Notepad extends React.Component {
     // Sets the state.notes to the API data
     loadedActiveNote(data){
         console.log("Data loaded!");
-        // console.log(data);
+        console.log(data);
         this.setState({
             activeNote : data
         })
     }
 
-    editNotes(id){
+    editNote = (id) => {
         console.log(`Editted Note - ID: ${id}`);
     }
 
-    deleteNotes(id){
+    // DELETE functions
+    deleteNote = (id) => {
+        fetch(`https://docent.cmi.hro.nl/bootb/demo/notes/${id}`, { method: 'DELETE' })
+            .then(() => this.deletedNote(id))
+            .catch((error) => console.log(error));
+    }
+
+    deletedNote = (id) => {
         console.log(`Deleted Note - ID: ${id}`);
+        this.setState({ activeNote : 0 })
+        this.props.reloadNotes()
     }
 
     render(){
@@ -51,7 +60,7 @@ export class Notepad extends React.Component {
                 <p>Number of notes: {this.props.notes.length}</p>
                 <div className="row-container">
                     <div className="notes">{notes}</div>
-                    <Notedetails note={this.state.activeNote} editNotes={this.editNotes} deleteNotes={this.deleteNotes} />
+                    <Notedetails note={this.state.activeNote} editNote={this.editNote} deleteNote={this.deleteNote} />
                 </div>
             </div>
         )

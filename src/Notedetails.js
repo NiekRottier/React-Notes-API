@@ -15,8 +15,9 @@ export class Notedetails extends React.Component {
                     <p>{this.props.note.body}</p>
                     <p>Author: {this.props.note.author}</p>
                     <i>Posted at: {this.props.note.date}</i>
-                    <input type="button" name="Edit" value="Edit" onClick={() => this.props.editNotes(this.props.note.id)} />
-                    <input type="button" name="Delete" value="Delete" onClick={() => this.props.deleteNotes(this.props.note.id)} />
+
+                    <input type="button" name="Edit" value="Edit" onClick={() => this.props.editNote(this.props.note.id)} />
+                    <input type="button" name="Delete" value="Delete" onClick={() => this.props.deleteNote(this.props.note.id)} />
                 </div>
             )
         } else { return (<div className="note" />) }
