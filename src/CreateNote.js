@@ -62,7 +62,7 @@ export class CreateNote extends React.Component {
 
     createdNote(data){
         console.log("Created a Note");
-        console.log(data);
+        // console.log(data);
         this.setState({ resData : data })
 
         window.location.reload()

@@ -10,8 +10,29 @@ export class App extends React.Component {
         super()
         console.log("Hello World");
         this.state = {
-            user : "unknown"
+            user : "unknown",
+            notes : []
         }
+
+        this.loadNotes()
+    }
+
+    // Fetches data from API, gets the JSON and sends it to loadedNotes()
+    loadNotes(){
+        let headers = { 'Accept': 'application/json' };
+        fetch("http://docent.cmi.hro.nl/bootb/demo/notes/", { headers })
+            .then((response) => response.json())
+            .then((data) => this.loadedNotes(data))
+            .catch((error) => console.log(error))
+    }
+
+    // Sets the state.notes to the API data
+    loadedNotes(data){
+        console.log("Data loaded!");
+        console.log(data.items);
+        this.setState({
+            notes : data.items
+        })
     }
 
     // Change state.user to whatever is in the Namechanger form 
@@ -29,7 +50,7 @@ export class App extends React.Component {
                 </div>
 
                 {/* <p>Wanna see your notes?</p> */}
-                <Notepad />
+                <Notepad notes={this.state.notes} ref="notepad"/>
             </div>
         )
     }
