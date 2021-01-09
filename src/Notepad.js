@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css"
+import qs from "qs";
 
 import { Notedetails } from "./Notedetails";
 
@@ -7,8 +8,15 @@ export class Notepad extends React.Component {
     constructor(){
         super()
         console.log("Created Notepad");
-        this.state = {
-            activeNote : 0
+        
+        let queryStringId = qs.parse(window.location.search, { ignoreQueryPrefix: true }).id
+        console.log(`Query string id: ${queryStringId}`);
+
+        if (queryStringId) {
+            this.state = { activeNote : queryStringId }
+            this.loadActiveNote(this.state.activeNote)
+        } else {
+            this.state = { activeNote : 0 }
         }
     }
 
@@ -40,14 +48,16 @@ export class Notepad extends React.Component {
             <div key={index} onClick={() => this.loadActiveNote(note.id)}>{note.title}</div>
         ));
 
+        console.log("RENDER");
+
         return (
             <div className="notepad">
                 <p>Number of notes: {this.props.notes.length}</p>
                 <div className="row-container">
                     <div className="notes">{notes}</div>
                     
-                    <Notedetails note={this.state.activeNote} editNote={this.editNote} deleteNote={this.deleteNote} 
-                        resetActiveNote={this.resetActiveNote} reloadNotes={this.props.reloadNotes} reloadActiveNote={this.loadActiveNote} />
+                    <Notedetails note={this.state.activeNote} resetActiveNote={this.resetActiveNote}
+                        reloadNotes={this.props.reloadNotes} reloadActiveNote={this.loadActiveNote} />
                 </div>
             </div>
         )

@@ -23,6 +23,6 @@ export class Notedetails extends React.Component {
                     <Delete note={this.props.note} resetActiveNote={this.props.resetActiveNote} reloadNotes={this.props.reloadNotes} />
                 </div>
             )
-        } else { return (<div className="note" />) }
+        } else { return (<div className="note"> Please select a note to see its details </div>) }
     }
 }
