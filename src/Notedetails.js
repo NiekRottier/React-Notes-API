@@ -11,7 +11,8 @@ export class Notedetails extends React.Component {
     }
 
     render(){
-        if (this.props.note) {
+        if (this.props.note && isNaN(this.props.note)) {
+            console.log(this.props.note);
             return (
                 <div className="note">
                     <h3>{this.props.note.title}</h3>
@@ -23,6 +24,6 @@ export class Notedetails extends React.Component {
                     <Delete note={this.props.note} resetActiveNote={this.props.resetActiveNote} reloadNotes={this.props.reloadNotes} />
                 </div>
             )
-        } else { return (<div className="note"> Please select a note to see its details </div>) }
+        } else { return (<div className="note"> Please select a note from the list </div>) }
     }
 }
