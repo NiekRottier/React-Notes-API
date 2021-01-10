@@ -69,6 +69,8 @@ body{
     width: 100%;
     height: 30px;
     padding: 0px 10px;
+
+    cursor: pointer;
 }
 
 .modalContent{
@@ -123,6 +125,8 @@ body{
     height: 30px;
     padding: 0px 10px;
     margin: 10px;
+
+    cursor: pointer;
 }
 
 .notepad{
@@ -162,6 +166,29 @@ body{
     cursor: pointer;
 }
 
+.notes > .pagination{
+    background-color: rgba(153, 50, 204, 0.2);
+    border: 1px solid darkorchid;
+    border-radius: 5px;
+
+    padding: 10px;
+    margin: 10px 5%;
+
+    cursor: default;
+}
+
+.pagination > input[type="button"]{
+    background-color: rgba(153, 50, 204, 0.2);
+    border: 1px solid darkorchid;
+    border-radius: 5px;
+
+    width: 23%;
+    height: 30px;
+    margin: 0 1%;
+
+    cursor: pointer;
+}
+
 .note{
     background-color: rgba(0, 255, 128, 0.2);
     border: 1px solid springgreen;
@@ -197,7 +224,6 @@ body{
     
     cursor: pointer;
 }
-
 
 @media only screen and (max-width: 600px){
     .row-container{

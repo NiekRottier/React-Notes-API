@@ -3,6 +3,7 @@ import "./styles.css"
 import qs from "qs";
 
 import { Notedetails } from "./Notedetails";
+import { Pagination } from "./Pagination";
 
 export class Notepad extends React.Component {
     constructor(){
@@ -50,9 +51,13 @@ export class Notepad extends React.Component {
 
         return (
             <div className="notepad">
-                <p>Number of notes: {this.props.notes.length}</p>
+                <p>Total notes: {this.props.pagination.totalItems} -- 
+                    Page: {this.props.pagination.currentPage}/{this.props.pagination.totalPages}</p>
                 <div className="row-container">
-                    <div className="notes">{notes}</div>
+                    <div className="notes">
+                        {notes}
+                        <Pagination pagination={this.props.pagination} setFetchLink={this.props.setFetchLink} />
+                    </div>
                     
                     <Notedetails note={this.state.activeNote} resetActiveNote={this.resetActiveNote}
                         reloadNotes={this.props.reloadNotes} reloadActiveNote={this.loadActiveNote} />

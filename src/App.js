@@ -11,16 +11,26 @@ export class App extends React.Component {
         console.log("Hello World");
         this.state = {
             user : "unknown",
-            notes : []
+            fetchLink : "http://docent.cmi.hro.nl/bootb/demo/notes/?start=1&limit=5",
+            notes : [],
+            paginationData : {}
         }
 
         this.loadNotes()
     }
 
+    setFetchLink = (link) => {
+        this.setState({ fetchLink : link })
+        console.log(`Set fetchLink to ${link}`);
+
+        this.loadNotes(link)
+    }
+
     // Fetches data from API, gets the JSON and sends it to loadedNotes()
-    loadNotes = () => {
+    loadNotes = (link = this.state.fetchLink) => {
         let headers = { 'Accept': 'application/json' };
-        fetch("http://docent.cmi.hro.nl/bootb/demo/notes/", { headers })
+
+        fetch(link, { headers })
             .then((response) => response.json())
             .then((data) => this.loadedNotes(data))
             .catch((error) => console.log(error))
@@ -29,9 +39,9 @@ export class App extends React.Component {
     // Sets the state.notes to the API data
     loadedNotes(data){
         console.log("Data loaded!");
-        console.log(data.items);
         this.setState({
-            notes : data.items
+            notes : data.items,
+            paginationData : data.pagination
         })
     }
 
@@ -50,7 +60,8 @@ export class App extends React.Component {
                 </div>
 
                 {/* <p>Wanna see your notes?</p> */}
-                <Notepad notes={this.state.notes}  reloadNotes={this.loadNotes}/>
+                <Notepad notes={this.state.notes}  reloadNotes={this.loadNotes} 
+                    pagination={this.state.paginationData} setFetchLink={this.setFetchLink} />
             </div>
         )
     }

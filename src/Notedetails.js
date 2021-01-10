@@ -12,7 +12,6 @@ export class Notedetails extends React.Component {
 
     render(){
         if (this.props.note && isNaN(this.props.note)) {
-            console.log(this.props.note);
             return (
                 <div className="note">
                     <h3>{this.props.note.title}</h3>

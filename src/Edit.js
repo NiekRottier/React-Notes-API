@@ -80,7 +80,6 @@ export class Edit extends React.Component {
     }
 
     render(){
-        console.log("RENDER EDIT");
         return(
             <div>
                 <input type="button" name="Edit" value="Edit" onClick={() => this.openModal()} />
