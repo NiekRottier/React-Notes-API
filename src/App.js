@@ -38,7 +38,7 @@ export class App extends React.Component {
 
     // Sets the state.notes to the API data
     loadedNotes(data){
-        console.log("Data loaded!");
+        console.log("Overview data loaded!");
         this.setState({
             notes : data.items,
             paginationData : data.pagination

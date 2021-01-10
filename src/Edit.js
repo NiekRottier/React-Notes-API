@@ -71,8 +71,7 @@ export class Edit extends React.Component {
     }
 
     edittedNote = (data) => {
-        console.log("Editted a Note");
-        console.log(data);
+        console.log(`Editted Note - ID: ${data.id}`);
         this.setState({ resData : data })
 
         this.props.reloadActiveNote(data.id)

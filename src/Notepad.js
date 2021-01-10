@@ -33,8 +33,7 @@ export class Notepad extends React.Component {
 
     // Sets the state.activeNote to the API data
     loadedActiveNote(data){
-        console.log("Data loaded!");
-        console.log(data);
+        console.log("Details data loaded!");
         this.setState({
             activeNote : data
         })
