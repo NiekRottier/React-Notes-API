@@ -75,6 +75,7 @@ export class Edit extends React.Component {
         this.setState({ resData : data })
 
         this.props.reloadActiveNote(data.id)
+        this.props.reloadNotes()
         this.closeModal()
     }
 
