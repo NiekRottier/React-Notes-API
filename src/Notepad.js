@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.css"
-import qs from "qs";
 
 import { Notedetails } from "./Notedetails";
 import { Pagination } from "./Pagination";
@@ -10,11 +9,11 @@ export class Notepad extends React.Component {
         super()
         console.log("Created Notepad");
         
-        let queryStringId = qs.parse(window.location.search, { ignoreQueryPrefix: true }).id
-        console.log(`Query string id: ${queryStringId}`);
+        let UrlId = window.location.pathname.replace('/', '')
+        console.log(`URL Id: ${UrlId}`);
 
-        if (queryStringId) {
-            this.state = { activeNote : queryStringId }
+        if (UrlId) {
+            this.state = { activeNote : UrlId }
             this.loadActiveNote(this.state.activeNote)
         } else {
             this.state = { activeNote : 0 }
